@@ -65,7 +65,7 @@ export default function TrackingFlow({ reduced = false }) {
       <svg className="flow-connections" viewBox="0 0 1000 400" preserveAspectRatio="none" aria-hidden="true">
         <defs>
           <linearGradient id={`stream-${uid}`}><stop stopColor="#2988ff"/><stop offset="1" stopColor="#3edaff"/></linearGradient>
-          <filter id={`glow-${uid}`} x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          <filter id={`glow-${uid}`} filterUnits="userSpaceOnUse" x="-20" y="-20" width="1040" height="440"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
           <marker id={`arrow-${uid}`} viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 1L7 5L1 9" fill="none" stroke="#4ccfff" strokeWidth="1.4"/></marker>
         </defs>
         {paths.map((d, i) => <path key={`base-${i}`} d={d} fill="none" stroke="#22568c" strokeWidth="1.5" vectorEffect="non-scaling-stroke"/>)}
