@@ -6,7 +6,7 @@ Site institucional em React 19 e Next.js 16 (App Router, exportação estática)
 
 `npm install` e `npm run dev` — http://127.0.0.1:4175
 
-`npm run build` exporta para `out/`; `npm start` serve essa versão localmente. Deploy em VPS: `docker compose up -d --build` (nginx + Cloudflare Tunnel via `TUNNEL_TOKEN` no `.env`, veja `.env.example`).
+`npm run build` exporta para `out/`; `npm start` serve essa versão localmente. Deploy em VPS: `docker compose up -d --build` (nginx na porta 4175 do host, exposto por um Cloudflare Tunnel já existente).
 
 ## Interface e conteúdo
 
