@@ -1,0 +1,33 @@
+/* Personalized product art, clear captions, compact process cards. */
+.background-tracking > img { height: 850px; opacity: .72; object-position: center top; }
+.background-tracking:after { background: linear-gradient(180deg,#080c1340,#080c1330 16%,#080c13cc 47%,#080c13 76%); }
+.about-layout { grid-template-columns: .8fr 1.2fr; gap: 64px; align-items: start; }
+.about-portrait { position: relative; }
+.about-image { aspect-ratio: .86; }
+.about-experience { display: flex; align-items: center; gap: 20px; padding: 24px 0 0; }
+.about-experience strong { font-size: 2.1rem; font-weight: 550; letter-spacing: -.03em; color: #f5f8fc; }
+.about-experience span { font-size: .875rem; line-height: 1.5; color: #c5d1e0; }
+.about-credentials { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 28px; padding-top: 24px; border-top: 1px solid #50607866; }
+.about-credentials > div > span { display: block; font-size: .75rem; letter-spacing: .07em; color: #a6c3e6; }
+.about-credentials strong { display: block; font-size: 1.0625rem; font-weight: 600; margin-top: 9px; color: #f4f7fc; }
+.about-credentials p { font-size: .875rem; line-height: 1.65; margin-top: 7px; color: #cad5e2; }
+.about-copy .expertise-tags { margin-top: 24px; }
+.about-copy .linkedin-link { font-size: .875rem; }
+@media (max-width:1199px) {
+ .about-layout { gap: 36px; }
+}
+@media (max-width:850px) {
+ .about-layout { grid-template-columns: .8fr 1.2fr; gap: 30px; }
+ .about-credentials { grid-template-columns: 1fr; gap: 18px; }
+ .about-experience { align-items: flex-start; flex-direction: column; gap: 5px; }
+}
+@media (max-width:600px) {
+ .background-tracking > img { height: 680px; object-fit: cover; object-position: center; }
+ .about-layout { grid-template-columns: 1fr; gap: 32px; }
+ .about-portrait { max-width: 420px; width: 100%; margin-inline: auto; }
+ .about-image { aspect-ratio: 1.1; }
+ .about-experience { flex-direction: row; align-items: center; justify-content: center; gap: 18px; padding-top: 22px; }
+ .about-credentials { grid-template-columns: 1fr 1fr; gap: 18px; }
+ .about-credentials p { font-size: .875rem; }
+ .about-copy .about-lead { font-size: 1.6rem; }
+}

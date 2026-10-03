@@ -1,0 +1,252 @@
+{
+  "/assets/projects/project-01-cover.webp": {
+    "mobile": "/assets/projects/project-01-cover-mobile.webp",
+    "width": 1199,
+    "mobileWidth": 800
+  },
+  "/assets/projects/project-02-cover.webp": {
+    "mobile": "/assets/projects/project-02-cover-mobile.webp",
+    "width": 1199,
+    "mobileWidth": 800
+  },
+  "/assets/projects/project-03-cover.webp": {
+    "mobile": "/assets/projects/project-03-cover-mobile.webp",
+    "width": 1199,
+    "mobileWidth": 800
+  },
+  "/assets/projects/project-04-cover.webp": {
+    "mobile": "/assets/projects/project-04-cover-mobile.webp",
+    "width": 1199,
+    "mobileWidth": 800
+  },
+  "/assets/projects/project-05-cover.webp": {
+    "mobile": "/assets/projects/project-05-cover-mobile.webp",
+    "width": 1199,
+    "mobileWidth": 800
+  },
+  "/assets/projects/project-06-cover.webp": {
+    "mobile": "/assets/projects/project-06-cover-mobile.webp",
+    "width": 1199,
+    "mobileWidth": 800
+  },
+  "/assets/projects/project-07-cover.webp": {
+    "mobile": "/assets/projects/project-07-cover-mobile.webp",
+    "width": 1199,
+    "mobileWidth": 800
+  },
+  "/assets/projects/project-08-cover.webp": {
+    "mobile": "/assets/projects/project-08-cover-mobile.webp",
+    "width": 1199,
+    "mobileWidth": 800
+  },
+  "/assets/projects/project-09-cover.webp": {
+    "mobile": "/assets/projects/project-09-cover-mobile.webp",
+    "width": 1199,
+    "mobileWidth": 800
+  },
+  "/assets/projects/project-10-cover.webp": {
+    "mobile": "/assets/projects/project-10-cover-mobile.webp",
+    "width": 1199,
+    "mobileWidth": 800
+  },
+  "/assets/projects/project-11-cover.webp": {
+    "mobile": "/assets/projects/project-11-cover-mobile.webp",
+    "width": 1199,
+    "mobileWidth": 800
+  },
+  "/assets/projects/project-12-cover.webp": {
+    "mobile": "/assets/projects/project-12-cover-mobile.webp",
+    "width": 1199,
+    "mobileWidth": 800
+  },
+  "/assets/projects/project-13-cover.webp": {
+    "mobile": "/assets/projects/project-13-cover-mobile.webp",
+    "width": 1199,
+    "mobileWidth": 800
+  },
+  "/assets/projects/project-14-cover.webp": {
+    "mobile": "/assets/projects/project-14-cover-mobile.webp",
+    "width": 1199,
+    "mobileWidth": 800
+  },
+  "/assets/projects/project-15-cover.webp": {
+    "mobile": "/assets/projects/project-15-cover-mobile.webp",
+    "width": 1199,
+    "mobileWidth": 800
+  },
+  "/assets/projects/project-16-cover.webp": {
+    "mobile": "/assets/projects/project-16-cover-mobile.webp",
+    "width": 1199,
+    "mobileWidth": 800
+  },
+  "/assets/projects/project-17-cover.webp": {
+    "mobile": "/assets/projects/project-17-cover-mobile.webp",
+    "width": 1199,
+    "mobileWidth": 800
+  },
+  "/assets/projects/project-18-cover.webp": {
+    "mobile": "/assets/projects/project-18-cover-mobile.webp",
+    "width": 1199,
+    "mobileWidth": 800
+  },
+  "/assets/projects/project-19-cover.webp": {
+    "mobile": "/assets/projects/project-19-cover-mobile.webp",
+    "width": 1199,
+    "mobileWidth": 800
+  },
+  "/assets/projects/project-20-cover.webp": {
+    "mobile": "/assets/projects/project-20-cover-mobile.webp",
+    "width": 1199,
+    "mobileWidth": 800
+  },
+  "/assets/projects/project-21-cover.webp": {
+    "mobile": "/assets/projects/project-21-cover-mobile.webp",
+    "width": 1199,
+    "mobileWidth": 800
+  },
+  "/assets/projects/project-22-cover.webp": {
+    "mobile": "/assets/projects/project-22-cover-mobile.webp",
+    "width": 1199,
+    "mobileWidth": 800
+  },
+  "/assets/projects/project-23-cover.webp": {
+    "mobile": "/assets/projects/project-23-cover-mobile.webp",
+    "width": 1199,
+    "mobileWidth": 800
+  },
+  "/assets/projects/project-24-cover.webp": {
+    "mobile": "/assets/projects/project-24-cover-mobile.webp",
+    "width": 1199,
+    "mobileWidth": 800
+  },
+  "/assets/projects/project-25-cover.webp": {
+    "mobile": "/assets/projects/project-25-cover-mobile.webp",
+    "width": 1199,
+    "mobileWidth": 800
+  },
+  "/assets/projects/project-26-cover.webp": {
+    "mobile": "/assets/projects/project-26-cover-mobile.webp",
+    "width": 1199,
+    "mobileWidth": 800
+  },
+  "/assets/projects/project-27-cover.webp": {
+    "mobile": "/assets/projects/project-27-cover-mobile.webp",
+    "width": 1199,
+    "mobileWidth": 800
+  },
+  "/assets/projects/project-28-cover.webp": {
+    "mobile": "/assets/projects/project-28-cover-mobile.webp",
+    "width": 1199,
+    "mobileWidth": 800
+  },
+  "/assets/projects/project-29-cover.webp": {
+    "mobile": "/assets/projects/project-29-cover-mobile.webp",
+    "width": 1199,
+    "mobileWidth": 800
+  },
+  "/assets/projects/project-30-cover.webp": {
+    "mobile": "/assets/projects/project-30-cover-mobile.webp",
+    "width": 1199,
+    "mobileWidth": 800
+  },
+  "/assets/projects/project-31-cover.webp": {
+    "mobile": "/assets/projects/project-31-cover-mobile.webp",
+    "width": 1199,
+    "mobileWidth": 800
+  },
+  "/assets/projects/project-32-cover.webp": {
+    "mobile": "/assets/projects/project-32-cover-mobile.webp",
+    "width": 1199,
+    "mobileWidth": 800
+  },
+  "/assets/projects/project-33-cover.webp": {
+    "mobile": "/assets/projects/project-33-cover-mobile.webp",
+    "width": 1199,
+    "mobileWidth": 800
+  },
+  "/assets/projects/project-34-cover.webp": {
+    "mobile": "/assets/projects/project-34-cover-mobile.webp",
+    "width": 1199,
+    "mobileWidth": 800
+  },
+  "/assets/services/service-meta.webp": {
+    "mobile": "/assets/services/service-meta-mobile.webp",
+    "width": 1200,
+    "mobileWidth": 800
+  },
+  "/assets/services/service-server.webp": {
+    "mobile": "/assets/services/service-server-mobile.webp",
+    "width": 1200,
+    "mobileWidth": 800
+  },
+  "/assets/services/service-analytics.webp": {
+    "mobile": "/assets/services/service-analytics-mobile.webp",
+    "width": 1200,
+    "mobileWidth": 800
+  },
+  "/assets/services/service-dashboards.webp": {
+    "mobile": "/assets/services/service-dashboards-mobile.webp",
+    "width": 1200,
+    "mobileWidth": 800
+  },
+  "/assets/process/process-discovery.webp": {
+    "mobile": "/assets/process/process-discovery-mobile.webp",
+    "width": 1200,
+    "mobileWidth": 640
+  },
+  "/assets/process/process-planning.webp": {
+    "mobile": "/assets/process/process-planning-mobile.webp",
+    "width": 1200,
+    "mobileWidth": 640
+  },
+  "/assets/process/process-building.webp": {
+    "mobile": "/assets/process/process-building-mobile.webp",
+    "width": 1200,
+    "mobileWidth": 640
+  },
+  "/assets/process/process-evolving.webp": {
+    "mobile": "/assets/process/process-evolving-mobile.webp",
+    "width": 1200,
+    "mobileWidth": 640
+  },
+  "/assets/services/tracking-background.webp": {
+    "mobile": "/assets/services/tracking-background-mobile.webp",
+    "width": 1672,
+    "mobileWidth": 960
+  },
+  "/assets/backgrounds/bg-portfolio.webp": {
+    "mobile": "/assets/backgrounds/bg-portfolio-mobile.webp",
+    "width": 1672,
+    "mobileWidth": 960
+  },
+  "/assets/backgrounds/bg-about.webp": {
+    "mobile": "/assets/backgrounds/bg-about-mobile.webp",
+    "width": 1672,
+    "mobileWidth": 960
+  },
+  "/assets/backgrounds/bg-process.webp": {
+    "mobile": "/assets/backgrounds/bg-process-mobile.webp",
+    "width": 1672,
+    "mobileWidth": 960
+  },
+  "/assets/backgrounds/bg-faq.webp": {
+    "mobile": "/assets/backgrounds/bg-faq-mobile.webp",
+    "width": 1672,
+    "mobileWidth": 960
+  },
+  "/assets/backgrounds/bg-contact.webp": {
+    "mobile": "/assets/backgrounds/bg-contact-mobile.webp",
+    "width": 1672,
+    "mobileWidth": 960
+  },
+  "/assets/aven-space-background.webp": {
+    "mobile": "/assets/aven-space-background-mobile.webp",
+    "width": 1672,
+    "mobileWidth": 1200
+  },
+  "/assets/abner-santos.webp": {
+    "mobile": "/assets/abner-santos-mobile.webp",
+    "width": 1000,
+    "mobileWidth": 720
+  }
+}

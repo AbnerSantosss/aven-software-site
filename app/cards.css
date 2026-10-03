@@ -1,0 +1,106 @@
+/* Card density follows the UX Wiki: 16px inner spacing, readable copy,
+   responsive columns, and content-driven heights. */
+.projects-grid, .services-grid, .process-steps {
+  display: grid;
+  gap: 24px;
+  align-items: stretch;
+}
+.projects-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.services-grid, .process-steps { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.project-card, .service-card, .process-step {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #40516a;
+  border-radius: 10px;
+  background: #101925;
+}
+.project-card { box-shadow: 0 8px 28px #0003; }
+.project-image-button {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 8 / 5;
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: #090e16;
+  text-align: left;
+}
+.project-image-button > img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+.project-image-button.real-screen { padding: 16px 16px 0; background: #233247; }
+.project-image-button.real-screen > img { height: calc(100% - 25px); }
+.project-number { display: none; }
+.project-open {
+  position: absolute; right: 12px; bottom: 12px;
+  display: grid; place-items: center;
+  width: 40px; height: 40px;
+  border-radius: 50%; background: #ecf1f6; color: #111b24;
+}
+.project-stage {
+  position: absolute; left: 12px; bottom: 12px;
+  max-width: calc(100% - 76px);
+  padding: 6px 8px; border: 1px solid #75869a; border-radius: 4px;
+  font-size: .75rem; line-height: 1.4; color: #fff; background: #060c16ef;
+}
+.project-copy { padding: 16px; background: #101925; }
+.project-copy, .service-card-copy, .process-step-copy { min-width: 0; overflow-wrap: anywhere; }
+.project-heading { display: block; margin: 0; }
+.project-heading > span { display: block; margin-bottom: 4px; font-size: .8125rem; line-height: 1.5; color: #b4d7ff; }
+.project-heading h3 { font-size: 1.375rem; line-height: 1.3; font-weight: 650; letter-spacing: -.02em; color: #fff; overflow-wrap: anywhere; }
+.project-heading h3 button { min-height: 44px; padding: 0; border: 0; background: none; font: inherit; color: inherit; text-align: left; }
+.project-copy > p { margin-top: 4px; font-size: 1rem; line-height: 1.5; color: #d4dce7; }
+.service-card-wrap { min-width: 0; }
+.service-card { height: 100%; background: #0a101a; border-color: #6f87a04d; }
+.service-art, .process-art { position: relative; isolation: isolate; overflow: hidden; }
+.service-art { height: 168px; }
+.card-background { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform .4s ease; }
+.card-shade { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, #050b1420, transparent 60%, #0a101a); }
+.service-card-top { position: absolute; inset: 12px 12px auto; display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+.card-index { padding: 5px 8px; border-radius: 5px; background: #080f1be8; border: 1px solid #7b90aa66; color: #f4f7fc; font-size: .75rem; line-height: 1.5; }
+.service-brand-icons { display: flex; align-items: center; gap: 8px; padding: 7px; border-radius: 6px; border: 1px solid #a0b8d14d; color: #ecf4ff; background: #070d17eb; }
+.service-brand-icons img, .service-brand-icons svg { width: 24px; height: 24px; object-fit: contain; }
+.service-card-copy { padding: 12px 16px 16px; }
+.service-card h3 { font-size: 1.375rem; line-height: 1.3; font-weight: 600; letter-spacing: -.02em; color: #fff; text-wrap: balance; }
+.service-card p { margin-top: 12px; font-size: 1rem; line-height: 1.5; color: #d4dce7; }
+.service-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+.service-tags span { padding: 4px 6px; border: 1px solid #67819e77; border-radius: 4px; font-size: .75rem; line-height: 1.5; color: #d4e5f9; background: #101d2b; }
+.process-step { padding: 0; background: #060b13; border-color: #6f87a04d; backdrop-filter: none; }
+.process-art { height: 136px; }
+.process-art .card-background { object-fit: contain; object-position: center; }
+.process-art .card-shade { background: linear-gradient(180deg, transparent 65%, #060b13); }
+.process-art .card-index { position: absolute; top: 12px; left: 12px; }
+.process-step-copy { padding: 12px 16px 16px; }
+.process-step h3 { margin: 0; font-size: 1.375rem; line-height: 1.3; font-weight: 600; letter-spacing: -.02em; color: #fff; }
+.process-step p { margin-top: 8px; font-size: 1rem; line-height: 1.5; color: #d4dce7; }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .project-image-button:hover > img, .service-card:hover .card-background, .process-step:hover .card-background { transform: scale(1.025); }
+}
+@media (max-width: 1199px) {
+  .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  .service-art { height: 160px; }
+}
+@media (max-width: 1000px) {
+  .projects-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 900px) {
+  .process-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+}
+@media (max-width: 600px) {
+  .projects-grid, .services-grid, .process-steps { grid-template-columns: 1fr; gap: 16px; }
+  .services-grid { width: min(280px, calc(100% - 32px)); margin-inline: auto; }
+  .project-image-button { aspect-ratio: 16 / 9; }
+  .project-image-button > img { object-position: center 25%; }
+  .project-image-button.real-screen > img { height: calc(100% - 22px); }
+  .service-art { height: 128px; }
+  .service-card-top { inset: 10px 12px auto; }
+  .service-card h3 { font-size: 1.25rem; }
+  .service-tags { margin-top: 12px; }
+  .process-step { display: grid; grid-template-columns: 96px minmax(0, 1fr); align-items: center; }
+  .process-art { height: 100%; min-height: 120px; }
+  .process-art .card-background { position: absolute; inset: 0; padding-top: 24px; }
+  .process-art .card-shade { display: none; }
+  .process-art .card-index { top: 12px; left: 12px; border: 0; background: transparent; padding: 0; color: #a6c3e6; }
+  .process-step-copy { padding: 16px 16px 16px 8px; }
+  .process-step h3 { font-size: 1.25rem; }
+}

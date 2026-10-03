@@ -1,0 +1,15 @@
+.sites-runtime/
+*.tar.gz
+*.log
+node_modules/
+.next/
+out/
+dist/
+.DS_Store
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.openai/
+design-system/aven-software/custom-covers.md

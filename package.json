@@ -1,0 +1,25 @@
+{
+  "name": "aven-software",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --hostname 127.0.0.1 --port 4175",
+    "build": "next build",
+    "start": "node scripts/serve-static.mjs"
+  },
+  "dependencies": {
+    "@react-three/drei": "latest",
+    "@react-three/fiber": "latest",
+    "gsap": "^3.15.0",
+    "lucide-react": "latest",
+    "motion": "latest",
+    "next": "16.3.8",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "three": "latest"
+  },
+  "devDependencies": {
+    "playwright": "^1.63.0",
+    "simple-icons": "^16.33.0"
+  }
+}
