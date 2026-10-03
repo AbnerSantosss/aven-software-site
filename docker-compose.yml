@@ -3,17 +3,5 @@ services:
     build: .
     container_name: aven-site
     restart: unless-stopped
-    networks: [web]
-
-  cloudflared:
-    image: cloudflare/cloudflared:latest
-    container_name: aven-tunnel
-    restart: unless-stopped
-    command: tunnel --no-autoupdate run
-    environment:
-      TUNNEL_TOKEN: ${TUNNEL_TOKEN}
-    depends_on: [site]
-    networks: [web]
-
-networks:
-  web:
+    ports:
+      - "4175:80"

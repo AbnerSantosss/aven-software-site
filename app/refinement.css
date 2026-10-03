@@ -53,19 +53,6 @@ main { overflow-x: clip; }
 .platform-strip { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px 32px; margin-bottom: 50px; }
 .platform-strip > span { display: flex; align-items: center; gap: 10px; font-size: .875rem; font-weight: 500; color: #ebf0f7; }
 .platform-strip img { object-fit: contain; width: 24px; height: 24px; }
-.tracking-feature { display: grid; grid-template-columns: .8fr 1.2fr; align-items: center; gap: 70px; margin-top: 72px; }
-.tracking-feature-copy { max-width: 430px; }
-.tracking-feature-copy .eyebrow { color: #9fc5f8; }
-.tracking-feature-copy h3 { margin-top: 22px; font-size: clamp(2.25rem,3.2vw,3rem); letter-spacing: -.03em; font-weight: 550; line-height: 1.16; }
-.tracking-feature-copy p { margin-top: 20px; color: #c9d5e5; line-height: 1.75; font-size: 1rem; }
-.tracking-feature-copy .button { margin-top: 28px; text-align: center; }
-.tracking-flow { background: #0c1524; border-color: #6888ad66; box-shadow: 0 20px 60px #0003; }
-.flow-topline { padding: 16px 20px; }
-.flow-topline > span { font-size: .75rem; letter-spacing: .08em; color: #bdd5f1; }
-.flow-topline button { height: 44px; width: 44px; }
-.flow-bottom { font-size: .8125rem; color: #d4e0f2; flex-wrap: wrap; }
-.flow-bottom small { font-size: .75rem; color: #b0c4df; }
-.event-token { font-size: .75rem; color: #d0e7fa; }
 
 /* Portrait and work process use the same centered heading rhythm. */
 .about, .process, .faq-section { display: block; }
@@ -111,7 +98,6 @@ main { overflow-x: clip; }
 @media (max-width: 1199px) {
   .page-width { width: calc(100% - 64px); }
   .section { padding-block: 88px; }
-  .tracking-feature { gap: 36px; grid-template-columns: .85fr 1.15fr; }
   .about-layout { gap: 42px; }
   .about-copy .about-lead { font-size: 1.6rem; }
   .contact-layout { gap: 50px; }
@@ -124,10 +110,6 @@ main { overflow-x: clip; }
   .hero-coordinate { display: none; }
   .section .section-heading h2 { font-size: 2.65rem; }
   .section .section-heading > p { font-size: 1rem; }
-  .tracking-feature { grid-template-columns: 1fr; gap: 32px; }
-  .tracking-feature-copy { text-align: center; max-width: 580px; margin-inline: auto; }
-  .tracking-feature-copy .eyebrow { justify-content: center; }
-  .tracking-feature .tracking-flow { max-width: 670px; width: 100%; }
   .about-layout { grid-template-columns: .85fr 1.15fr; gap: 28px; align-items: start; }
   .about-image { aspect-ratio: .7; }
   .about-copy .about-lead { font-size: 1.4rem; }
@@ -168,14 +150,6 @@ main { overflow-x: clip; }
   .platform-strip { gap: 14px 20px; margin-bottom: 30px; }
   .platform-strip > span { font-size: .8125rem; gap: 7px; }
   .platform-strip img { width: 20px; height: 20px; }
-  .tracking-feature { margin-top: 46px; gap: 30px; }
-  .tracking-feature-copy h3 { font-size: 2.2rem; }
-  .tracking-feature-copy .button { width: 100%; font-size: .875rem; padding-inline: 15px; }
-  .flow-topline { padding: 12px; }
-  .flow-topline > span { font-size: .6875rem; letter-spacing: .04em; }
-  .flow-bottom { padding: 15px; font-size: .75rem; justify-content: center; }
-  .flow-events { gap: 6px; }
-  .event-token { font-size: .6875rem; padding: 7px; }
   .about-layout { grid-template-columns: 1fr; gap: 32px; }
   .about-image { aspect-ratio: .95; max-width: 440px; width: 100%; margin-inline: auto; }
   .about-copy .about-lead { font-size: 1.7rem; line-height: 1.35; }

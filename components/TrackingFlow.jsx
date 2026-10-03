@@ -1,60 +1,91 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import gsap from 'gsap';
-import { Pause, Play, Monitor, Server } from 'lucide-react';
+import { Check, ChartNoAxesCombined, Monitor, Pause, Play, Server } from 'lucide-react';
 
-const destinations=[{id:'meta',name:'Meta Ads',caption:'Pixel + API de Conversões',y:65},{id:'googleads',name:'Google Ads',caption:'Conversões de campanha',y:185},{id:'googleanalytics',name:'GA4',caption:'Eventos da jornada',y:305}];
+const destinations = [
+  { id: 'meta', name: 'Meta Ads', caption: 'Pixel + API de Conversões' },
+  { id: 'googleads', name: 'Google Ads', caption: 'Conversões de campanha' },
+  { id: 'googleanalytics', name: 'GA4', caption: 'Eventos da jornada' },
+];
+const paths = ['M240 200H350', 'M590 200H630Q658 200 658 170V90Q658 61 685 61H700', 'M590 200H700', 'M590 200H630Q658 200 658 230V310Q658 339 685 339H700'];
 
-export default function TrackingFlow({reduced=false}) {
-  const root=useRef(null);const timeline=useRef(null);const[playing,setPlaying]=useState(!reduced);
-  useEffect(()=>{
-    const host=root.current;const select=gsap.utils.selector(host);
-    // Hyperframes-animation: path draw + smooth entrance + SVG dash flow.
-    // One deterministic, finite timeline; React owns web playback and lifecycle.
-    const tl=gsap.timeline({paused:true,repeat:2,repeatDelay:1.5,onComplete:()=>setPlaying(false)});
-    timeline.current=tl;
-    tl.fromTo(select('.flow-node'),{opacity:.5,scale:.97},{opacity:1,scale:1,duration:.55,stagger:.08,ease:'power3.out',transformOrigin:'50% 50%'},0);
-    const paths=select('.flow-trace');
-    paths.forEach((path,i)=>{
-      const length=path.getTotalLength();
-      tl.fromTo(path,{strokeDasharray:length,strokeDashoffset:length,opacity:0},{strokeDashoffset:0,opacity:1,duration:1.4,ease:'power2.inOut'},i===0?.45:1.65+(i-1)*.3);
-      tl.to(path,{opacity:.2,duration:1.1},5.8);
-    });
-    tl.fromTo(select('.source-pulse'),{opacity:.8,scale:1},{opacity:0,scale:1.65,transformOrigin:'50% 50%',duration:1.2,ease:'power2.out'},.3);
-    tl.fromTo(select('.gtm-pulse'),{opacity:.75,scale:1},{opacity:0,scale:1.45,transformOrigin:'50% 50%',duration:1.1,ease:'power2.out'},1.8);
-    tl.fromTo(select('.destination-check'),{opacity:0,scale:.4},{opacity:1,scale:1,duration:.4,stagger:.3,ease:'power3.out',transformOrigin:'50% 50%'},3);
-    tl.fromTo(select('.event-token'),{opacity:0,y:7},{opacity:1,y:0,duration:.4,stagger:.2},3.7);
-    tl.to({}, {duration:1.5},6.8);
-    if(reduced){tl.totalProgress(1);setPlaying(false);}
-    const observer=new IntersectionObserver(([e])=>{
-      if(reduced)return;
-      if(e.isIntersecting && tl.totalProgress()<1){tl.play();setPlaying(true);}else{tl.pause();setPlaying(false);}
-    },{threshold:.25});observer.observe(host);
-    return()=>{observer.disconnect();tl.kill();timeline.current=null;};
-  },[reduced]);
-  function toggle(){const tl=timeline.current;if(!tl)return;if(playing){tl.pause();setPlaying(false);}else{if(tl.totalProgress()>=1)tl.restart();else tl.play();setPlaying(true);}}
-  return <div className="tracking-flow" ref={root}>
-    <div className="flow-topline"><span><i/> RASTREAMENTO CONECTADO</span><button onClick={toggle} aria-label={playing?'Pausar animação de rastreamento':'Reproduzir animação de rastreamento'}>{playing?<Pause size={13}/>:<Play size={13}/>}</button></div>
-    <svg className="flow-diagram" viewBox="0 0 610 400" role="img" aria-label="Fluxo ilustrativo: eventos do site passam por um servidor próprio com GTM e APIs e são enviados para Meta Ads, Google Ads e GA4.">
-      <defs><linearGradient id="data-stream"><stop stopColor="#39c7f0"/><stop offset="1" stopColor="#9bdaff"/></linearGradient></defs>
-      <g fill="none" stroke="#537592" strokeWidth="1.3" opacity=".4"><path d="M139 201H245"/><path d="M357 201H382Q396 201 396 186V84Q396 68 413 68H451"/><path d="M357 201H451"/><path d="M357 201H382Q396 201 396 217V318Q396 334 413 334H451"/></g>
-      <g fill="none" stroke="url(#data-stream)" strokeWidth="2.4" strokeLinecap="round"><path className="flow-trace" d="M139 201H245"/><path className="flow-trace" d="M357 201H382Q396 201 396 186V84Q396 68 413 68H451"/><path className="flow-trace" d="M357 201H451"/><path className="flow-trace" d="M357 201H382Q396 201 396 217V318Q396 334 413 334H451"/></g>
-      <g className="flow-node"><rect x="20" y="152" width="118" height="98" rx="12" fill="#0c1726" stroke="#536e87"/><rect className="source-pulse" x="20" y="152" width="118" height="98" rx="12" fill="none" stroke="#55cfff"/><rect x="56" y="172" width="43" height="29" rx="3" fill="none" stroke="#c8daeb" strokeWidth="2"/><path d="M56 180H99M72 205H84" stroke="#c8daeb" strokeWidth="2"/><text x="79" y="225" textAnchor="middle" fill="#d5e6f6" fontSize="13">Seu site</text><text x="79" y="283" textAnchor="middle" fill="#96b3c9" fontSize="10">cliques · leads · vendas</text></g>
-      <g className="flow-node"><rect x="245" y="144" width="112" height="114" rx="14" fill="#102038" stroke="#5283ae"/><rect className="gtm-pulse" x="245" y="144" width="112" height="114" rx="14" fill="none" stroke="#59b6ff"/><image href="/assets/brands/googletagmanager.svg" x="282" y="160" width="38" height="38"/><text x="301" y="219" textAnchor="middle" fill="#edf6ff" fontSize="14" fontWeight="600">Seu servidor</text><text x="301" y="240" textAnchor="middle" fill="#a6bbd0" fontSize="10">GTM + APIs próprias</text><text x="301" y="283" textAnchor="middle" fill="#96b3c9" fontSize="10">infraestrutura própria</text></g>
-      {destinations.map((d,i)=><g className="flow-node" key={d.id}><rect x="450" y={d.y-34} width="143" height="79" rx="11" fill="#0d1929" stroke="#354f68"/><image href={`/assets/brands/${d.id}.svg`} x="464" y={d.y-19} width="24" height="24"/><text x="497" y={d.y-3} fill="#e3edf6" fontSize="12" fontWeight="600">{d.name}</text><text x="464" y={d.y+24} fill="#8ba6be" fontSize="8.5">{d.caption}</text><g className="destination-check"><circle cx="580" cy={d.y-27} r="8" fill="#3bd6b0"/><path d={`M576 ${d.y-27}l2.5 2.5 4-5`} fill="none" stroke="#061b17" strokeWidth="1.5"/></g></g>)}
-    </svg>
+function Destination({ destination, mobile = false }) {
+  return <div className={`flow-node destination-node ${mobile ? 'mobile-flow-node' : ''}`}>
+    <img src={`/assets/brands/${destination.id}.svg`} alt="" width="36" height="36"/>
+    <div><strong>{destination.name}</strong><span>{destination.caption}</span></div>
+    <span className="destination-check" aria-hidden="true"><Check size={13} strokeWidth={3}/></span>
+  </div>;
+}
+
+export default function TrackingFlow({ reduced = false }) {
+  const root = useRef(null), timeline = useRef(null), manuallyPaused = useRef(false), inView = useRef(false);
+  const [playing, setPlaying] = useState(false);
+  const uid = useId().replace(/:/g, '');
+  useEffect(() => {
+    const host = root.current;
+    let tl;
+    // Hyperframes principles: finite deterministic timeline; React owns web playback.
+    const context = gsap.context(() => {
+      const select = gsap.utils.selector(host);
+      tl = gsap.timeline({ paused: true, repeat: 1, repeatDelay: 1.2, onComplete: () => setPlaying(false) });
+      timeline.current = tl;
+      tl.fromTo(select('.flow-node'), { opacity: .65, y: 6 }, { opacity: 1, y: 0, duration: .55, stagger: .07, ease: 'power3.out' }, 0);
+      tl.fromTo(select('.flow-trace'), { strokeDashoffset: 100, opacity: 0 }, { strokeDashoffset: 0, opacity: 1, duration: 1.1, stagger: .26, ease: 'power2.inOut' }, .5);
+      tl.fromTo(select('.server-halo'), { opacity: .8, scale: 1 }, { opacity: 0, scale: 1.15, duration: 1.4, ease: 'power2.out' }, 1);
+      tl.fromTo(select('.mobile-flow-connector'), { scaleY: 0, opacity: .3 }, { scaleY: 1, opacity: 1, duration: .65, transformOrigin: 'top' }, .6);
+      tl.fromTo(select('.destination-check'), { opacity: 0, scale: .65 }, { opacity: 1, scale: 1, duration: .35, stagger: .16, ease: 'power3.out' }, 2);
+      tl.fromTo(select('.event-token'), { opacity: .3, y: 4 }, { opacity: 1, y: 0, duration: .4, stagger: .15 }, 2.8);
+      tl.to({}, { duration: 1.4 });
+      if (reduced) tl.totalProgress(1);
+    }, host);
+    const syncPlayback = () => {
+      const shouldPlay = !reduced && !manuallyPaused.current && inView.current && !document.hidden && tl.totalProgress() < 1;
+      if (shouldPlay) tl.play(); else tl.pause();
+      setPlaying(shouldPlay);
+    };
+    const observer = new IntersectionObserver(([entry]) => { inView.current = entry.isIntersecting; syncPlayback(); }, { threshold: .25 });
+    observer.observe(host);
+    document.addEventListener('visibilitychange', syncPlayback);
+    return () => { observer.disconnect(); document.removeEventListener('visibilitychange', syncPlayback); context.revert(); timeline.current = null; };
+  }, [reduced]);
+  function toggle() {
+    const tl = timeline.current;
+    if (!tl || reduced) return;
+    if (playing) { manuallyPaused.current = true; tl.pause(); setPlaying(false); }
+    else { manuallyPaused.current = false; if (tl.totalProgress() >= 1) tl.restart(); else tl.play(); setPlaying(true); }
+  }
+  return <div className="tracking-flow" ref={root} aria-label="Demonstração de rastreamento conectado">
+    <div className="flow-topline">
+      <div className="flow-heading"><span><i/> RASTREAMENTO CONECTADO</span><p>Do clique ao seu painel. Tudo integrado.</p></div>
+      <div className="flow-controls"><span className="flow-demo">DEMO</span><button type="button" onClick={toggle} disabled={reduced} aria-label={reduced ? 'Animação desativada por preferência de movimento reduzido' : playing ? 'Pausar animação de rastreamento' : 'Reproduzir animação de rastreamento'} title={reduced ? 'Movimento reduzido ativado' : playing ? 'Pausar demonstração' : 'Reproduzir demonstração'}>{playing ? <Pause size={17}/> : <Play size={17}/>}</button></div>
+    </div>
+    <div className="flow-diagram">
+      <svg className="flow-connections" viewBox="0 0 1000 400" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <linearGradient id={`stream-${uid}`}><stop stopColor="#2988ff"/><stop offset="1" stopColor="#3edaff"/></linearGradient>
+          <filter id={`glow-${uid}`} x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          <marker id={`arrow-${uid}`} viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 1L7 5L1 9" fill="none" stroke="#4ccfff" strokeWidth="1.4"/></marker>
+        </defs>
+        {paths.map((d, i) => <path key={`base-${i}`} d={d} fill="none" stroke="#22568c" strokeWidth="1.5" vectorEffect="non-scaling-stroke"/>)}
+        {paths.map((d, i) => <path key={i} className="flow-trace" d={d} pathLength="100" strokeDasharray="100" fill="none" stroke={`url(#stream-${uid})`} strokeWidth="2" vectorEffect="non-scaling-stroke" markerEnd={`url(#arrow-${uid})`} filter={`url(#glow-${uid})`}/>)}
+        <circle cx="240" cy="200" r="5" fill="#78dfff" filter={`url(#glow-${uid})`}/><circle cx="590" cy="200" r="5" fill="#78dfff" filter={`url(#glow-${uid})`}/>
+      </svg>
+      <div className="flow-node source-node"><span className="node-icon"><Monitor size={32} strokeWidth={1.6}/></span><strong>Seu site</strong><span>Cliques · leads · vendas</span></div>
+      <div className="flow-node server-node"><span className="server-halo" aria-hidden="true"/><span className="node-icon"><Server size={34} strokeWidth={1.7}/></span><strong>Seu servidor</strong><span>GTM + APIs próprias</span><small>Infraestrutura própria</small></div>
+      <div className="flow-destinations">{destinations.map(destination => <Destination key={destination.id} destination={destination}/>)}</div>
+    </div>
     <div className="flow-mobile" aria-label="Eventos do site passam pelo servidor próprio e chegam às plataformas de anúncios.">
       <div className="flow-mobile-origin">
-        <div className="flow-node mobile-flow-node"><Monitor size={24}/><strong>Seu site</strong><span>Cliques, leads e vendas</span></div>
-        <div className="flow-node mobile-flow-node"><Server size={24}/><strong>Seu servidor</strong><span>GTM + APIs próprias</span></div>
+        <div className="flow-node mobile-flow-node"><Monitor size={26}/><strong>Seu site</strong><span>Cliques, leads e vendas</span></div>
+        <span className="mobile-origin-arrow" aria-hidden="true">→</span>
+        <div className="flow-node mobile-flow-node mobile-server"><Server size={28}/><strong>Seu servidor</strong><span>GTM + APIs próprias</span></div>
       </div>
-      <div className="flow-mobile-connector" aria-hidden="true"/>
-      <div className="flow-mobile-destinations">
-        {destinations.map(d=><div className="flow-node mobile-flow-node" key={d.id}><img src={'/assets/brands/'+d.id+'.svg'} alt="" width="28" height="28"/><div><strong>{d.name}</strong><span>{d.caption}</span></div></div>)}
-      </div>
+      <div className="mobile-flow-connector" aria-hidden="true"/>
+      <div className="flow-mobile-destinations">{destinations.map(destination => <Destination key={destination.id} destination={destination} mobile/>)}</div>
     </div>
-    <div className="flow-events"><span className="event-token">page_view</span><span className="event-token">generate_lead</span><span className="event-token">purchase</span></div>
-    <div className="flow-bottom"><span>Uma jornada. Eventos conectados.</span><small>Fluxo ilustrativo</small></div>
+    <div className="flow-event-panel"><div className="flow-event-label"><span className="flow-status-dot"/><div><strong>EVENTOS CONECTADOS</strong><span>Do seu site para as plataformas.</span></div></div><div className="flow-events"><span className="event-token">page_view</span><span className="event-token">generate_lead</span><span className="event-token">purchase</span></div></div>
+    <div className="flow-bottom"><span><ChartNoAxesCombined size={15}/> Uma jornada. Eventos conectados.</span><small>Fluxo ilustrativo</small></div>
   </div>;
 }

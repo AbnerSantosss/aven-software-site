@@ -3,6 +3,7 @@ import './refinement.css';
 import './covers.css';
 import './mobile.css';
 import './cards.css';
+import './tracking.css';
 
 export const metadata = {
   title: 'AVEN Software — Software, dados e conexões',
