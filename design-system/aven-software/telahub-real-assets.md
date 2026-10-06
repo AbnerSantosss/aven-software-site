@@ -1,0 +1,17 @@
+# TelaHub — capa em ambiente realista
+
+Modo: geração nativa com `image_gen`, uma chamada para uma imagem nova. A capa e o print anteriores foram inspecionados para entender o produto; não foram enviados como entrada de edição. O resultado é uma cena ilustrativa gerada, não uma fotografia de cliente ou instalação real.
+
+Direção: recepção plausível com duas TVs instaladas na parede e notebook de administração no balcão. Luz natural, materiais cotidianos e conteúdo institucional. Sem marca TelaHub incorporada, sem pessoas ou indicação de cliente. Mantém-se o título do projeto em HTML.
+
+Arquivos:
+- `public/assets/covers-v3/telahub-real.webp` — 1200 px de largura, proporção nativa preservada.
+- `public/assets/covers-v3/telahub-real-mobile.webp` — 600 px de largura, proporção nativa preservada.
+
+Original nativo: `C:/Users/binho/.codex/generated_images/01a1100d-fb50-7dc1-8f3d-d5b49b098f3a/exec-6865ae5c-3c40-4750-bb97-f8fbf67a7fd9.png`.
+
+Exportação: Sharp somente para redimensionamento proporcional e codificação WebP (qualidade 87, effort 6). Sem recorte, composição, retoque ou mudança de conteúdo. Imagem inspecionada visualmente: TVs presas às paredes, perspectiva coerente, notebook com calendário de conteúdo, sem elementos flutuantes.
+
+## Prompt final
+
+Use case: photorealistic-natural. Asset type: realistic editorial cover photograph for TelaHub, a digital signage content-management project in a software portfolio. Create one landscape 16:10 photograph that looks like an actual interior photographed in a modern, believable Brazilian clinic reception. Main subject: a large ordinary 16:9 black television professionally installed on a light plaster wall above the reception area, with realistic slim bezel, slight screen reflections and a discreet visible wall bracket at its side. Its screen displays a polished institutional welcome notice in Portuguese, with a calm teal-blue and white interface, the short exact text 'Bem-vindo' and a simple abstract botanical photo occupying the other half. A second smaller 16:9 wall-mounted TV is visible farther back in a modest waiting area, showing a simple queue display with only 'Senha 024' and 'Guichê 02'. Foreground: a real warm wood reception counter with an open unbranded silver laptop, keyboard and physically correct hinge visible, its screen showing a restrained content-scheduling admin interface with two TV thumbnails and a weekly calendar grid without readable tiny text. Compose so the main wall television, the laptop and the second TV can be understood together; one large TV dominates, the other sits naturally deeper in the room. Realistic architecture: off-white plaster, pale oak cabinetry, matte porcelain floor, a few upholstered waiting chairs and a small plant. Soft natural daylight from a side window, ordinary believable lens perspective around 35mm, subtle photographic grain, understated neutral colors, real shadows and natural imperfections, not a perfectly shiny futuristic showroom. Entire composition should work in a small portfolio card, keep important objects within comfortable edge margins. This is a fictional illustrative environment, not a named client. No people, no faces, no logos, no brand names, no TelaHub wordmark, no clinic name, no endorsements, no floating panels, no holograms, no pedestals, no glowing connections, no sci-fi lighting, no 3D-render aesthetic, no decorative text overlays, no watermark.

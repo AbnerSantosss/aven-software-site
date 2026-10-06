@@ -248,5 +248,10 @@
     "mobile": "/assets/abner-santos-mobile.webp",
     "width": 1000,
     "mobileWidth": 720
+  },
+  "/assets/covers-v3/telahub-real.webp": {
+    "mobile": "/assets/covers-v3/telahub-real-mobile.webp",
+    "width": 1200,
+    "mobileWidth": 600
   }
 }

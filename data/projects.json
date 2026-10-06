@@ -5,9 +5,9 @@
     "category": "Sistemas",
     "description": "Gerencia conteúdo de TVs com editor, agendamento e monitoramento.",
     "stage": null,
-    "image": "/assets/projects/project-03-cover.webp",
+    "image": "/assets/covers-v3/telahub-real.webp",
     "imageKind": "cover",
-    "captureLabel": "Capa personalizada baseada na identidade visual do projeto.",
+    "captureLabel": "Cena ilustrativa de uso da TelaHub em uma recepção; imagem gerada, sem vínculo com cliente real.",
     "referenceImage": "/assets/projects/project-03-screen.webp",
     "referenceKind": "screenshot",
     "referenceLabel": "Interface do projeto"
