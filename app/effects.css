@@ -1,0 +1,129 @@
+/* Efeitos e refinamentos responsivos. Carregado depois de portfolio.css.
+   Movimento só com prefers-reduced-motion: no-preference; o bloco final neutraliza o resto. */
+
+/* Header: progresso de leitura e compactação ao rolar */
+.pf-header{transition:background-color 200ms ease,border-color 200ms ease}
+.pf-brand{transform-origin:left center;transition:transform 240ms var(--pf-ease-out)}
+.pf-brand small{transition:opacity 200ms ease,transform 240ms var(--pf-ease-out)}
+.pf-header[data-scrolled=true]{background:#080b10f5;border-color:#ffffff1a}
+.pf-header[data-scrolled=true] .pf-brand{transform:scale(.92)}
+.pf-header[data-scrolled=true] .pf-brand small{opacity:0;transform:translateY(-4px)}
+.pf-progress{position:absolute;left:0;right:0;bottom:-1px;height:2px;background:linear-gradient(90deg,#7dbbfa,#bddbfa);transform-origin:0 50%;transform:scaleX(0);pointer-events:none}
+.pf-desktop-nav a{transition:color 160ms ease,border-color 160ms ease}
+
+/* Letreiro da topline: estático em telas largas, contínuo em telas pequenas */
+.pf-marquee{width:100%;min-width:0;max-width:100%;overflow:hidden}
+.pf-marquee-track{display:flex;justify-content:space-around;gap:24px;will-change:transform}
+.pf-marquee-track>[aria-hidden]{display:none}
+@media(max-width:800px){
+  .pf-topline{padding-inline:0;justify-content:flex-start;overflow:hidden}
+  .pf-marquee{mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+  .pf-marquee-track{width:max-content;justify-content:flex-start;gap:0}
+  .pf-topline .pf-marquee-track>span{display:block;padding-inline:20px}
+  .pf-topline .pf-marquee-track>span::before{content:'·';color:#4b688a;margin-right:20px}
+}
+@media(prefers-reduced-motion:reduce) and (max-width:800px){
+  .pf-marquee{mask-image:none}
+  .pf-marquee-track{width:auto;flex-wrap:wrap;justify-content:center;row-gap:4px}
+  .pf-topline .pf-marquee-track>[aria-hidden]{display:none}
+}
+
+/* Hero: linhas mascaradas, brilho ambiente e pré-ocultação até o GSAP assumir */
+.pf-hero h1>span{color:inherit}
+.pf-hero h1 .pf-line{display:block;overflow:hidden;padding-bottom:.1em;margin-bottom:-.1em}
+.pf-hero h1 .pf-line-inner{display:block;will-change:transform}
+.pf-hero h1 .pf-line-muted{color:#aabbd0}
+.pf-hero-glow{position:absolute;z-index:-1;width:min(60vw,620px);aspect-ratio:1;right:-8%;top:50%;translate:0 -50%;border-radius:50%;background:radial-gradient(circle,#3b78c233 0%,#1d3c6a1a 40%,transparent 70%);filter:blur(30px);opacity:.4;pointer-events:none}
+@media(max-width:600px){.pf-hero-glow{width:90vw;right:-25%;top:62%}}
+@media(prefers-reduced-motion:no-preference){
+  .pf-hero:not([data-intro]) :is(.pf-hero-copy>:not(h1),.pf-portrait,.pf-portrait-note){opacity:0;animation:pf-unhide 0s 2.4s forwards}
+  .pf-hero:not([data-intro]) .pf-line-inner{transform:translateY(110%);animation:pf-unhide-line 0s 2.4s forwards}
+}
+@keyframes pf-unhide{to{opacity:1}}
+@keyframes pf-unhide-line{to{transform:none}}
+
+/* Cartões: spotlight que segue o ponteiro, elevação e zoom das imagens */
+.pf-project-card,.pf-expertise-card,.pf-service-card,.pf-process-card,.pf-stack-group{position:relative}
+.pf-project-card::after{content:'';position:absolute;inset:0;border-radius:inherit;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),#9cc8ff1f,transparent 55%);opacity:0;transition:opacity 300ms ease;pointer-events:none;z-index:1}
+.pf-project-card[data-hover]::after{opacity:1}
+.pf-project-card{transition:border-color .2s,box-shadow .35s var(--pf-ease-out);transform-style:preserve-3d}
+.pf-project-card[data-hover]{box-shadow:0 18px 48px -18px #000c,0 0 0 1px #8aa2bf33}
+.pf-project-image>img{transition:transform 600ms var(--pf-ease-out)}
+.pf-open-icon{transition:transform 320ms var(--pf-ease-out),background-color 200ms ease}
+.pf-featured-badge{transition:transform 320ms var(--pf-ease-out)}
+.pf-expertise-card>img,.pf-service-image img,.pf-process-card img,.pf-stack-art{transition:transform 700ms var(--pf-ease-out)}
+.pf-expertise-card,.pf-service-card,.pf-process-card{transition:border-color 200ms ease,transform 400ms var(--pf-ease-out),box-shadow 400ms var(--pf-ease-out)}
+.pf-stack-emblem{transition:transform 300ms var(--pf-ease-out),border-color 200ms ease}
+.pf-tags span{transition:border-color 200ms ease,color 200ms ease}
+@media(hover:hover) and (pointer:fine){
+  .pf-button:hover{transform:translateY(-1px)}
+  .pf-button:active{transform:translateY(0) scale(.97)}
+  .pf-project-image:hover>img{transform:scale(1.045)}
+  .pf-project-card[data-hover] .pf-open-icon{transform:rotate(90deg) scale(1.08);background:#fff}
+  .pf-expertise-card:hover,.pf-service-card:hover,.pf-process-card:hover{border-color:#6f88a6;transform:translateY(-3px);box-shadow:0 16px 40px -20px #000c}
+  .pf-expertise-card:hover>img,.pf-service-card:hover .pf-service-image img,.pf-process-card:hover img{transform:scale(1.04)}
+  .pf-stack-group:hover .pf-stack-art{transform:scale(1.03)}
+  .pf-stack-emblem:hover{transform:translateY(-3px);border-color:#9fb6cf}
+  .pf-expertise-card:hover .pf-tags span,.pf-service-card:hover .pf-tags span{border-color:#4d6a8a;color:#e0ecfa}
+  .pf-filters button:hover:not([aria-pressed=true]){border-color:#6f88a6;background:#121d2b}
+  .pf-desktop-nav a:hover{color:#fff;border-color:#4d6a8a}
+  .pf-faq-list summary:hover{color:#fff}
+}
+
+/* Filtros de projetos: chips com transição e trilho rolável em telas estreitas */
+.pf-filters button{transition:background-color 200ms ease,border-color 200ms ease,color 200ms ease,transform 160ms var(--pf-ease-out)}
+.pf-project-grid{min-height:200px}
+@media(max-width:600px){
+  .pf-project-toolbar{display:grid;gap:12px}
+  .pf-filters{flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:none;margin-inline:-18px;padding:2px 18px;mask-image:linear-gradient(90deg,transparent,#000 18px,#000 calc(100% - 18px),transparent);-webkit-overflow-scrolling:touch}
+  .pf-filters::-webkit-scrollbar{display:none}
+  .pf-filters button{flex:none;scroll-snap-align:start}
+  .pf-project-toolbar>p{text-align:center}
+}
+
+/* FAQ: resposta surge com leve deslocamento */
+.pf-faq-list details>p{animation:pf-faq-in 320ms var(--pf-ease-out)}
+.pf-faq-list summary svg{transition:transform 320ms var(--pf-ease-out),color 200ms ease}
+.pf-faq-list details[open] summary svg{color:#fff}
+@keyframes pf-faq-in{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+/* Formulário: foco mais visível e coerente com os botões */
+.pf-contact-form input,.pf-contact-form select,.pf-contact-form textarea{transition:border-color 160ms ease,box-shadow 160ms ease}
+.pf-contact-form input:focus-visible,.pf-contact-form select:focus-visible,.pf-contact-form textarea:focus-visible{outline:none;border-color:#7dbbfa;box-shadow:0 0 0 4px #7dbbfa2e}
+.pf-contact-form [role=status]:not(:empty){animation:pf-faq-in 320ms var(--pf-ease-out);border-radius:5px}
+
+/* Diálogo: folha inferior em telas estreitas */
+@media(max-width:600px){
+  .pf-dialog{width:100vw;max-width:100%;max-height:92dvh;margin:auto 0 0;border-radius:16px 16px 0 0;border-bottom:0}
+  .pf-dialog>img{max-height:42dvh}
+  .pf-dialog-copy{padding-bottom:calc(23px + env(safe-area-inset-bottom,0px))}
+  .pf-dialog-copy .pf-button{width:100%}
+}
+
+/* Áreas seguras e telas baixas em paisagem */
+@supports(padding:env(safe-area-inset-left)){
+  .pf-header-inner,.pf-mobile-nav{padding-left:max(0px,env(safe-area-inset-left));padding-right:max(0px,env(safe-area-inset-right))}
+  .pf-footer{padding-bottom:calc(24px + env(safe-area-inset-bottom,0px))}
+}
+@media(max-height:520px) and (orientation:landscape){
+  .pf-hero{padding:28px 0 36px}
+  .pf-hero-grid{gap:24px}
+  .pf-hero h1{font-size:clamp(34px,5vw,44px)}
+  .pf-section{padding:48px 0}
+}
+
+/* Reveal: nada de salto no layout; o Motion controla opacidade e transform */
+.pf-reveal{will-change:opacity,transform}
+
+/* Movimento reduzido: tudo estático, estados de hover sem transform */
+@media(prefers-reduced-motion:reduce){
+  .pf-progress{display:none}
+  .pf-hero-glow{opacity:.35}
+  .pf-reveal{will-change:auto}
+  .pf-project-card::after{display:none}
+  .pf-button:hover,.pf-expertise-card:hover,.pf-service-card:hover,.pf-process-card:hover,.pf-stack-emblem:hover,.pf-project-card[data-hover] .pf-open-icon,.pf-expertise-card:hover>img,.pf-service-card:hover .pf-service-image img,.pf-process-card:hover img,.pf-stack-group:hover .pf-stack-art{transform:none!important}
+}
+
+/* Linha superior da seção desenhada no scroll (useScrollScenes controla --pf-rule). */
+.pf-section{border-top:0;--pf-rule:1;overflow:clip}
+.pf-section::before{content:'';position:absolute;left:0;top:0;width:100%;height:1px;background:#ffffff13;transform:scaleX(var(--pf-rule));transform-origin:left center;pointer-events:none;z-index:0}

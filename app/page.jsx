@@ -1,3 +1,3 @@
-import AvenSite from '../components/AvenSite';
+import PortfolioSite from '../components/PortfolioSite';
 
-export default function Home() { return <AvenSite />; }
+export default function Home() { return <PortfolioSite />; }

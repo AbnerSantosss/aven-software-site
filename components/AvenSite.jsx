@@ -158,7 +158,7 @@ export default function AvenSite() {
             <div className="about-experience"><strong>5+ anos</strong><span>de experiência em<br/>tecnologia e marketing</span></div>
           </div>
           <Reveal className="about-copy">
-            <p className="about-lead">Desenvolvedor sênior.<br/>Especialista em tráfego pago e rastreamento.</p>
+            <p className="about-lead">Desenvolvedor sênior.<br/>Especialista avançado em Meta Ads e rastreamento de dados.</p>
             <p>Minha experiência une programação e marketing. Entendo a estratégia da campanha e construo a tecnologia para acompanhar o que ela gera: do primeiro clique à venda registrada.</p>
             <p>Desenvolvo servidores próprios de rastreamento, painéis personalizados, APIs e automações. Conecto Meta Ads, Google Ads, GA4 e CRM para que sua operação tenha dados úteis para decidir.</p>
             <div className="expertise-tags"><span>Software sob medida</span><span>Tráfego pago</span><span>Rastreamento server-side</span></div>

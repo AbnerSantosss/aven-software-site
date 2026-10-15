@@ -253,5 +253,15 @@
     "mobile": "/assets/covers-v3/telahub-real-mobile.webp",
     "width": 1200,
     "mobileWidth": 600
+  },
+  "/assets/about-v2/full-stack.webp": {
+    "mobile": "/assets/about-v2/full-stack-mobile.webp",
+    "width": 900,
+    "mobileWidth": 480
+  },
+  "/assets/about-v2/prompt-engineering.webp": {
+    "mobile": "/assets/about-v2/prompt-engineering-mobile.webp",
+    "width": 900,
+    "mobileWidth": 480
   }
 }

@@ -1,14 +1,12 @@
-import './globals.css';
-import './refinement.css';
-import './covers.css';
-import './mobile.css';
-import './cards.css';
+import './portfolio.css';
 import './tracking.css';
-import './expertise.css';
+import './effects.css';
+
+export const viewport = { themeColor: '#080b10', colorScheme: 'dark' };
 
 export const metadata = {
-  title: 'AVEN Software — Software, dados e conexões',
-  description: 'Abner Santos: desenvolvedor sênior e especialista em tráfego pago e rastreamento. Meta Ads, Google Ads, GA4, servidores próprios e painéis personalizados.',
+  title: { default: 'Abner Santos — Engenheiro de IA | AVEN Software', template: '%s | Abner Santos' },
+  description: 'Abner Santos: engenheiro de IA e desenvolvedor sênior. Agentes, RAG, MCP, fine-tuning e software que chega à produção. Especialista avançado em Meta Ads e rastreamento de dados.',
   icons: { icon: '/icon.svg' },
 };
 
